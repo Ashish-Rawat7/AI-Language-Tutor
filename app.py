@@ -23,6 +23,11 @@ user_input = ""
 
 if audio_input:
     user_input = transcribe_audio(audio_input)
+
+    if user_input:
+        st.info(f"Transcribed: {user_input}")
+    else:
+        st.warning("Speech-to-text not available")
     st.info(f"Transcribed: {user_input}")
 
 text_input = st.text_input("Or type your sentence:")

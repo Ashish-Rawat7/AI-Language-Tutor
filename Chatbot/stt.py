@@ -1,12 +1,28 @@
-import whisper
-import tempfile
+import os
 
-model = whisper.load_model("base")
+ENABLE_STT = os.getenv("ENABLE_STT", "False").lower() == "true"
+
+USE_STT = False
+
+if ENABLE_STT:
+    try:
+        import whisper
+        model = whisper.load_model("base")
+        USE_STT = True
+    except Exception as e:
+        print("STT disabled:", str(e))
+        USE_STT = False
+else:
+    print("STT disabled via config")
+
 
 def transcribe_audio(audio_file):
-    with tempfile.NamedTemporaryFile(delete=False) as tmp:
-        tmp.write(audio_file.read())
-        tmp_path = tmp.name
+    if not USE_STT:
+        return ""
 
-    result = model.transcribe(tmp_path)
-    return result["text"]
+    try:
+        result = model.transcribe(audio_file)
+        return result["text"]
+    except Exception as e:
+        print("STT error:", str(e))
+        return ""
