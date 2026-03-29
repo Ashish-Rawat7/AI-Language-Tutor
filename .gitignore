@@ -1,0 +1,21 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+
+# Local Data
+data/
+
+# Streamlit Secrets
+.streamlit/secrets.toml
+
+# VS Code (optional)
+.vscode/
+
+# Logs
+*.log
