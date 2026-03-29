@@ -46,6 +46,7 @@ The system leverages modern AI models to simulate a human-like tutor, enabling l
 ## Live Demo
 https://ai-language-tutor-ashish.streamlit.app/
 
+---
 
 ## ⚙️ Installation
 
