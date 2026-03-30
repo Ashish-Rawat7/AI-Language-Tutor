@@ -1,6 +1,7 @@
+pyarrow>=17.0.0
 streamlit
+language-tool-python
+speechrecognition
 python-dotenv
 google-genai
-language-tool-python
-gtts
-speechrecognition
+edge-tts
